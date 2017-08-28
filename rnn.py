@@ -23,6 +23,14 @@ def get_batch(batch_size, X, t):
 
 
 def create_data(nb_of_samples, sequence_len):
+"""
+入力データとラベルの作成
+nb_of_samples ... num_of_sampleが入る
+sequence_len ... length_of_sequencesが入る
+長さsequence_lenのリストを複数個(nb_of_samplesだけ)用意し、それをまとめて行列Xとする
+各要素は0か1の値がランダムで入る
+tは正解ラベルでリストの各要素の合計値入っている(大きさnb_of_sanplesの)リスト
+"""
     X = np.zeros((nb_of_samples, sequence_len))
     for row_idx in range(nb_of_samples):
         X[row_idx, :] = np.around(np.random.rand(sequence_len)).astype(int)
